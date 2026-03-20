@@ -40,15 +40,20 @@
 
 class Donor {
 public:
-    int donorId, district, number;
+    int donorId, district, bloodType, number;
     std::string name, address, bloodType;
 
     void donorDetails() const;
+    int getAge() const;
+    int getBloodType() const;
+    int getDistrict() const;
 
     static Donor parseLine(const std::string& line);
 
 private:
     static std::string trim(const std::string& str);
+    int age;
+    int bloodType;
+    int district;
 };
-
 #endif // DONOR_H

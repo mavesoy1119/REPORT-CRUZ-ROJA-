@@ -17,6 +17,7 @@
 
 #include "BloodDatabase.h"
 #include "Donor.h"
+#include "Reportes.h"
 #include <iostream>
 #include <limits>
 #include <string>
@@ -41,7 +42,8 @@ int main() {
         std::cout << "1. Registrar donante\n";
         std::cout << "2. Buscar donante\n";
         std::cout << "3. Eliminar donante\n";
-        std::cout << "4. Salir\n";
+        std::cout << "4. Reportes\n ";
+        std::cout << "5. Salir\n";
         std::cout << "Ingrese su elección: ";
         std::cin >> choice;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // descartar cualquier entrada extra
@@ -61,6 +63,16 @@ int main() {
             BloodDatabase::waitForKeyPress();
             break;
         case 4:
+        Reportes reporte;
+            std::cout<<"Reporteador "<<endl<<endl;
+            reporte.loadDataBase(database.getDonors());
+            std::cout<<"El total de registros es: "<<reporte.donorTotal()<<endl<<endl;
+            std::cout<<"El total de registros del choco con tipo de sangre A+: "<<reporte.donorTotal("A+", 8)<<endl<<endl;
+            std::cout<<"El total de registros de arauca con tipo de sangre O-: "<<reporte.donorTotal("O-", 9)<<endl<<endl;
+            std::cout<<"El total de registros del cauca con tipo de sangre A+: "<<reporte.donorTotal("A+", 2)<<endl<<endl;
+            BloodDatabase::waitForKeyPress();
+            break;
+        case 5:
             std::cout << "Gracias por usar el Sistema de la Cruz Roja" << std::endl;
             return 0;
         default:

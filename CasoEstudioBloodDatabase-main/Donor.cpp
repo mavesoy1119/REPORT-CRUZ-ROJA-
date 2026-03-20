@@ -27,6 +27,16 @@ void Donor::donorDetails() const {
     std::cout << "Distrito del donante: " << district << std::endl;
     std::cout << "Tipo de sangre del donante: " << bloodType << std::endl;
 }
+int Donor::getAge() const {
+    return age;
+}
+int Donor::getBloodType() const {
+    return bloodType;
+}
+int Donor::getDistrict() const {
+    return district;
+}
+
 
 Donor Donor::parseLine(const std::string& line) {
     Donor d;
